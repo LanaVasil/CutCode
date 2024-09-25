@@ -1,0 +1,72 @@
+/* =========================== header-bottom ======================================== */
+.header-bottom {
+  border-top: 3px solid var(--accent-color);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+
+  & .nav-item:first-child .nav-link {
+    padding-left: 0;
+  }
+
+  & .navbar {
+    background-color: var(--contrast-color) !important;
+
+    & .nav-link {
+      color: var(--bg-color);
+      transition: all 0.3s;
+
+      &:hover {
+        color: var(--accent-color);
+      }
+
+      &.active {
+        /* активне посилання меню, за замовченням - перша */
+        color: var(--accent-color);
+      }
+    }
+
+    & .dropdown-menu {
+      margin-top: 7px;
+      background-color: var(--contrast-color) !important;
+    }
+  }
+}
+
+/* зменьшення розміра меню при скролі  */
+.headernav-scroll.header-bottom .navbar .offcanvas:not(.show) .nav-link {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  // padding: 0;
+}
+
+/* =========================== ./ header-bottom ======================================== */
+
+
+/* ===========================  для пакета ======================================== */
+._flyImage._ibg{
+  opacity: 1;
+  position: fixed;
+  z-index: 100;
+  transition: all 1s ease 0s;
+}
+/* =========================== ./ для пакета ======================================== */
+
+
+
+
+// потрібно для меню-підменю відступи у згорнутоми вигляді
+@media only screen and (min-width : 992px) {
+  .header-bottom .navbar .dropdown-menu-end {
+    margin-left: 0;
+    border: 0;
+  }
+
+  .header-bottom .navbar .nav-link {
+    padding: 1rem;
+  }
+}
+
+@media only screen and (max-width : 991.98px) {
+  .header-bottom .navbar .dropdown-menu {
+    padding-left: 1rem;
+  }
+}

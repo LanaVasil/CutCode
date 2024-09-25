@@ -1,0 +1,29 @@
+/* =========================== Breadcrumbs ============================================ */
+
+$breadcrumb-divider: quote(">");
+
+.breadcrumb {
+  margin-bottom: 0;
+  /* margin: 1rem 0; */
+  /* padding: 1rem 0.5rem 0.5rem 0.5rem; */
+
+  &__container {
+    font-family: "Baltica", sans-serif;
+    font-size: small;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    // padding: 1rem 0.5rem 0.5rem 1rem;
+  }
+
+  &__link {
+    // text-decoration: none;
+    color: var(--contract-color);
+    transition: all .5s;
+
+    &:hover {
+      color: var(--accent-color);
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+/* =========================== end Breadcrumbs ======================================== */

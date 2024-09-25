@@ -1,0 +1,70 @@
+// z-index
+// page-link z-index: 3;
+// _flyImage._ibg  z-index: 100; для пакета
+// progress "спис доверху" 1000
+
+:root {
+
+
+  --theme-color: #fff;
+
+  --bg-color: #f6f5f5;
+  --bg-group-color: #e2e3e5;
+  --shadow-group: 0 11px 14px rgb(0 0 0 / 25%), 0 8px 20px rgb(0 0 0 / 10%);
+  --fg-color: lightyellow;
+  --bg-icon-color: #f5f5f5;
+  
+  // колір біля меню, картинка на іконке
+  --contrast-color: rgb(79, 78, 78);
+
+  --title-color: #682b07cb;
+  --text-color: #3d464d;
+
+  --outline-color: #ced4da;
+  --modal-color: #f8f9fa;
+
+  --accent-color: #ffd333;
+  --flash-color: #ff9900;
+
+  // $contrast-color: #3d464d; //$text-color
+  --focus-box-shadow: 0 0 0 .5px rgba(255, 127, 80, 0.6);
+  --bs-breadcrumb-divider: '>';
+
+
+  --bs-link-color: var(--text-color);
+  --bs-link-hover-color: var(--flash-color);
+
+  --bs-pagination-active-bg: var(--accent-color);
+  --bs-pagination-active-border-color: var(--accent-color);
+  --bs-pagination-focus-box-shadow: var(--focus-box-shadow);
+
+  // --bs-btn-font-family: 
+  --display-font-weight: 400;
+
+  --bs-modal-width: 320px;
+  --bs-modal-header-padding: 0.25rem 0.5rem;
+  --bs-primary-bg-subtle: var(--fg-color);
+
+  /* бордер радіус */
+  --bs-border-radius: 0;
+
+  /* назва модального вікна */
+  --livewire-progress-bar-color: var(--fg-color);
+
+  // .form-check
+  --gray-color: #ccc;
+  --light-gray-color: #eee;
+
+  /* зміна акцентного кольора чекбок, Progress Bar */
+  // accent-color: var(--accent-color);
+
+  /* Розмір екрана для _mixin.scss */
+  --max: 1920px;
+  --min: 320px;
+  --display-font-weight: 400;
+  --bs-body-line-height: 1.2;
+  // --font-family-sans-serif: 'BebasNeuePro', sans-serif;
+
+  /* зміна акцентного кольора чекбок, Progress Bar */
+  accent-color: var(--accent-color);
+}

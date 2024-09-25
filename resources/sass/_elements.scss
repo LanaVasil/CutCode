@@ -1,0 +1,490 @@
+// z-index - перелік
+// #progress / z-index: 1000;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  min-width: 320px;
+  // width: 100vw;
+  // height: 100vh;
+  overflow-x: hidden;
+
+  //більш вузький шрифт
+  // font-family: "BebasNeuePro", sans-serif; // самий щільний
+  // font-size: 16px;
+  // font-weight: 400;
+  color: var(--text-color);
+
+
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main.main {
+  flex: 1 1 auto;
+}
+
+p {
+  margin-bottom: 0.2rem;
+}
+
+// h1 {
+// font-family: "KalinkaMalinka";
+// font-weight: 500;
+// }
+
+/* --------------- */
+// [class*='__container'] {
+//   // max-width: 81.25rem;
+//   margin: 0 auto;
+//   // padding-left: 0.9375rem;
+//   // padding-right: 0.9375rem;
+//   padding: 1rem 0.5rem 0.5rem 1rem;
+// }
+
+
+// @media (min-width: 992px) {
+//   .container-lg, .container-md, .container-sm, .container {
+//       max-width: 960px;
+//   }
+// }
+// 960 1240 1440 1920 2560
+//  
+
+// червона зірочка - позначка що поле обов'язкове до заповнення 
+.asterisk:after {
+  content: '*';
+  color: red;
+  margin-left: 2px;
+}
+
+/* -- Перевизначення загальних елементів -- */
+.btn,
+.dropdown-menu,
+.form-control,
+.form-select {
+  border-radius: 0;
+}
+
+.form-control:focus,
+.form-select:focus,
+.input-group:focus,
+.control-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 .5px rgba(255, 127, 80, 0.6);
+}
+
+a {
+  color: inherit; //прибираємо синій колір
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+// a {
+//   color: var(--text-color);
+//   text-decoration: underline;
+// }
+
+// a:hover {
+//   text-decoration: none;
+// }
+
+
+// li {
+//   list-style: none; //прибираємо точки
+// }
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.icon {
+  /* width: 1.2rem;
+  height: 1.2rem; */
+  width: 80%;
+  /* padding: auto; */
+  /* background-color: val(--bg-color); */
+  fill: var(--text-color);
+
+  /* padding: 0; */
+
+  &:hover {
+    fill: var(--flash-color);
+  }
+}
+
+/* icon сортування */
+.icon-m {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: inherit;
+
+  &:hover {
+    fill: var(--accent-color);
+  }
+}
+
+.icon-2 {
+  width: 2rem;
+  height: 2rem;
+  /* border: 1px solid rebeccapurple; */
+  fill: inherit;
+
+  /* &:hover {
+    fill: var(--accent-color);
+  } */
+}
+
+.icon_old {
+  width: 1rem;
+  height: 1rem;
+  /* fill: var(--text-color); */
+  /* stroke: aqua; */
+  /* stroke-width: 5px; */
+
+  &:hover {
+    fill: var(--flash-color);
+  }
+}
+
+// Відображення назв помилок валідації Displaying the Validation Errors
+.alert {
+  padding: .5rem .5rem;
+  margin-bottom: .5rem;
+}
+
+.alert>ul {
+  margin-bottom: .5rem;
+  padding-left: 1rem;
+}
+
+
+.img-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* -- ./ Перевизначення загальних елементів -- */
+
+/* від Анни Блок, спрацює при підключенні мишки до планшету */
+@media (hover: hover) {
+  a:hover {
+    color: var(--accent-color);
+  }
+
+  button:hover {
+    background-color: var(--accent-color);
+    fill:  var(--accent-color);
+  }
+}
+
+/* від , налаштування для тач-екранів */
+@media (hover:hover) {
+  bottom:hover {
+    background: var(--accent-color);
+  }
+}
+
+@media (hover:none) {
+  bottom:active {
+    background: var(--accent-color);
+  }
+}
+
+/* ./від Анни Блок, спрацює при підключенні мишки до планшету */
+
+/*===== sidebar =====*/
+.sidebar {
+  background-color: var(--light-gray-color);
+  padding: 0.5rem 1rem;
+  Border-radius: 0.5rem;
+}
+
+.filter-blok .form-check {
+  margin-bottom: 0.5rem;
+}
+
+.form-check-input[type="checkbox"] {
+  border-radius: 0;
+  // border-color: var(--light-gray-color);
+}
+
+.form-check-input:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.form-check-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem rgba(250, 254, 126, 0.6);
+}
+
+.form-check span {
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+
+// .icon-link {
+//   width: 1.5rem;
+//   height: 1.5rem;
+// }
+// .icon-link:focus{
+//   fill: aqua;
+// }
+
+
+.icon-link{
+  gap:0.1rem;
+
+  & > .bi{
+  fill: var(--contrast-color);
+  }
+  &:hover > .bi{
+    fill: var(--accent-color);
+  }
+}
+
+.bi {
+  width: 100%;
+}
+
+
+
+/* -- маленька плоска кнопка - огляд, редагування, видалити(в кошик) -- */
+.btn-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: none;
+  // border: 1px solid var(--contrast-color);
+  // background-color: var(--bg-icon-color);
+  background-color: var(--bg-icon-color);
+  transition: background-color 0.3s ease-in-out, fill 0.3s ease-in-out;
+  // min-width: initial;
+
+  &:hover {
+    background-color: var(--accent-color);
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: var(--accent-color);
+  }
+
+  &>svg {
+    width: 200%;
+    height: 200%;
+    object-fit: cover;
+    fill: var(--contrast-color);
+  }
+
+  // &:hover>svg {
+  //   width: 100%;
+  //   height: 100%;
+  // }
+
+  &:active>svg {
+    width: 65%;
+    height: 65%;
+  }
+}
+
+/* -- ./ маленька плоска кнопка - огляд, редагування, видалити(в кошик) -- */
+
+
+
+
+
+/* -- pagination -- */
+/* .page-link {
+  position: relative;
+  display: block;
+  padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
+  font-size: var(--bs-pagination-font-size);
+  color: var(--bs-pagination-color)
+} */
+
+/* .active>.page-link, .page-link.active {
+  z-index: 3;
+  color: var(--bs-pagination-active-color);
+  background-color: var(--bs-pagination-active-bg);
+  border-color: var(--bs-pagination-active-border-color);
+} */
+
+/* -- -- */
+
+/* -- модальне вікно -- */
+.modal-header {
+  color: var(--title-color);
+
+  background-color: var(--fg-color);
+  border-bottom: 1px solid var(--accent-color);
+  padding: 0 0 0 1rem;
+}
+
+.btn.modal-close {
+  padding: 0;
+  /* border: 0; */
+}
+
+.btn.icon {
+  width: 2rem;
+  height: 2rem;
+
+}
+
+.modal-close {
+  /* border: 0; */
+  border-top-right-radius: var(--bs-modal-inner-border-radius);
+  transition: all .3s ease-out;
+
+  &:hover {
+    background-color: red;
+  }
+}
+
+.modal-title {
+  margin: 0.5px;
+}
+
+.modal-body {
+  background-color: var(--modal-color);
+}
+
+/* ./-- модальне вікно -- */
+
+/* -- модальне вікно --*/
+.modal-color {
+  background-color: var(--modal-color);
+}
+
+.fg-color {
+  background-color: var(--bs-gray-600);
+  color: var(--fg-color);
+}
+
+.table>thead>*>th,
+.table>thead>*>td {
+  padding: 0 0.3rem;
+  background-color: var(--modal-color);
+}
+
+/* .table>tbody>*>th,
+.table>tbody>*>td {
+  background-color: var(--fg-color);
+} */
+
+/*комірка в таблиці вирівняти за вертикаллю та горізонталлю*/
+.col-center {
+  text-align: center;
+  vertical-align: text-top;
+}
+
+
+
+
+/* -- Input -- */
+.form-label {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+input {
+  /* в т.ч. .form-control-group .form-control  */
+  border: 1px solid var(--outline-color);
+  font-size: 1.2rem;
+  outline: none;
+  transition: border-color 0.4s;
+}
+
+input:placeholder-shown {
+  /* border-color: rgba(255, 127, 80, 0.4); */
+  /* opacity: 0.5; */
+  font-style: italic;
+}
+
+/* -- ./Input -- */
+
+
+/* === device-картка направлення в Пакет === */
+.card {
+  // background-color: var(--bg-group-color);
+  background-color: var(--bg-color);
+
+  &:hover {
+    box-shadow: var(--shadow-group);
+  }
+
+  // текст пишеться в одну строку, решта заміняється ...
+  &__oneline,
+  &__oneline a {
+    height: rem(23);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-decoration: none;
+    transition: all .3s;
+
+    // &:hover {
+    //   text-decoration: none;
+    // }
+  }
+}
+// на device-картке натискаєм Пакет - заморозка поки device летить в Пакет
+.item-device__button.hold{
+  opacity: 0.2;
+  cursor: default;
+}
+/* === ./device-картка направлення в Пакет === */
+
+/* === кнопка повернення на початок при скроле === */
+#progress {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  height: 70px;
+  width: 70px;
+  display: none;
+  place-items: center;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#progress-value {
+  display: block;
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 35px;
+  color: #001a2e;
+}
+
+/* === ./ кнопка повернення на початок при скроле === */

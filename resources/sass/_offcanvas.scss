@@ -1,0 +1,9 @@
+.offcanvasPackage-table {
+  text-decoration: none;
+  // якщо цього нема то стеємо мишкою на посилання і змінюється курсор, тобто губиться посилання
+  display: block;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

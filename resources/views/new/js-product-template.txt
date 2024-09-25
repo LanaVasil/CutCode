@@ -1,0 +1,238 @@
+      const cartDeviceContent = `
+      <div class="cart-list__body">
+      <p> ${cartDeviceDevtype}</p>
+      <p> ${cartDeviceBrand}</p>
+      <p> ${cartDeviceName}</p>
+      <div class="cart-list__quantity"><span>1</span></div>
+      <a href="" class="cart-list__delete">Видалити</a>
+      </div>`;
+      cartList.insertAdjacentHTML('beforeend', `<li data-cart-pid="${deviceId}" class="cart-list__item">${cartDeviceContent}</li>`);
+
+
+                        {{-- <div class="offcanvas-body"> --}}
+                        <div class="table-responsive">
+                            <table class="table offcanvasPackage-table">
+                                <tbody>
+                                    <tr>
+                                        {{-- <td class="product-img-td"><a href="#"><img
+                                                    src="assets/img/products/1.jpg" alt=""></a>
+                                        </td> --}}
+                                        <td><a href="#">Product 1 Lorem ipsum dolor, sit amet consectetur
+                                                adipisicing.</a></td>
+                                        <td>$65</td>
+                                        <td>&times;1</td>
+                                        <td><button class="btn btn-danger"><i
+                                                    class="fa-regular fa-circle-xmark"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        {{-- <td class="product-img-td"><a href="#"><img
+                                                    src="assets/img/products/2.jpg" alt=""></a>
+                                        </td> --}}
+                                        <td><a href="#">Product 2</a></td>
+                                        <td>$80</td>
+                                        <td>&times;2</td>
+                                        <td><button class="btn btn-danger"><i
+                                                    class="fa-regular fa-circle-xmark"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        {{-- <td class="product-img-td"><a href="#"><img
+                                                    src="assets/img/products/3.jpg" alt=""></a>
+                                        </td> --}}
+                                        <td><a href="#">Product 3</a></td>
+                                        <td>$100</td>
+                                        <td>&times;1</td>
+                                        <td><button class="btn btn-danger"><i
+                                                    class="fa-regular fa-circle-xmark"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4" class="text-end">Total:</td>
+                                        <td>$325</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+
+                            <div class="text-end">
+                                <a href="#" class="btn btn-outline-warning">
+                                    {{ __('Завершити') }}
+                                </a>
+
+
+                                <a href="#" class="btn btn-outline-secondary">
+                                    {{ __('Оформити') }}
+                                </a>
+                            </div>
+
+
+
+
+                        </div>
+
+
+let productTemplateStart = `<article data-pid="${productId}" class="products__item item-product">`;
+			let productTemplateEnd = `</article>`;
+
+			let productTemplateLabels = '';
+			if (productLabels) {
+				let productTemplateLabelsStart = `<div class="item-product__labels">`;
+				let productTemplateLabelsEnd = `</div>`;
+				let productTemplateLabelsContent = '';
+
+				productLabels.forEach(labelItem => {
+					productTemplateLabelsContent += `<div class="item-product__label item-product__label_${labelItem.type}">${labelItem.value}</div>`;
+				});
+
+				productTemplateLabels += productTemplateLabelsStart;
+				productTemplateLabels += productTemplateLabelsContent;
+				productTemplateLabels += productTemplateLabelsEnd;
+			}
+
+			let productTemplateImage = `
+		<a href="${productUrl}" class="item-product__image _ibg">
+			<img src="img/products/${productImage}" alt="${productTitle}">
+		</a>
+	`;
+
+			let productTemplateBodyStart = `<div class="item-product__body">`;
+			let productTemplateBodyEnd = `</div>`;
+
+			let productTemplateContent = `
+		<div class="item-product__content">
+			<h3 class="item-product__title">${productTitle}</h3>
+			<div class="item-product__text">${productText}</div>
+		</div>
+	`;
+
+			let productTemplatePrices = '';
+			let productTemplatePricesStart = `<div class="item-product__prices">`;
+			let productTemplatePricesCurrent = `<div class="item-product__price">Rp ${productPrice}</div>`;
+			let productTemplatePricesOld = `<div class="item-product__price item-product__price_old">Rp ${productOldPrice}</div>`;
+			let productTemplatePricesEnd = `</div>`;
+
+			productTemplatePrices = productTemplatePricesStart;
+			productTemplatePrices += productTemplatePricesCurrent;
+			if (productOldPrice) {
+				productTemplatePrices += productTemplatePricesOld;
+			}
+			productTemplatePrices += productTemplatePricesEnd;
+
+			let productTemplateActions = `
+		<div class="item-product__actions actions-product">
+			<div class="actions-product__body">
+				<a href="" class="actions-product__button btn btn_white">Add to cart</a>
+				<a href="${productShareUrl}" class="actions-product__link _icon-share">Share</a>
+				<a href="${productLikeUrl}" class="actions-product__link _icon-favorite">Like</a>
+			</div>
+		</div>
+	`;
+
+			let productTemplateBody = '';
+			productTemplateBody += productTemplateBodyStart;
+			productTemplateBody += productTemplateContent;
+			productTemplateBody += productTemplatePrices;
+			productTemplateBody += productTemplateActions;
+			productTemplateBody += productTemplateBodyEnd;
+
+			let productTemplate = '';
+			productTemplate += productTemplateStart;
+			productTemplate += productTemplateLabels;
+			productTemplate += productTemplateImage;
+			productTemplate += productTemplateBody;
+			productTemplate += productTemplateEnd;
+
+
+
+      // створення клона зображення пакетика
+      const deviceImageFly=deviceImage.cloneNode(true);
+
+      // визначаємо розмір та координати клона
+      const deviceImageFlyWidth = deviceImage.offsetWidth;
+      const deviceImageFlyHeight = deviceImage.offsetHeight;
+      const deviceImageFlyLeft = deviceImage.getBoundingClientRect().left;
+      const deviceImageFlyTop = deviceImage.getBoundingClientRect().top;
+
+
+      deviceImageFly.setAttribute('class', '_flyImage _ibg');
+      deviceImageFly.style.cssText =
+      `
+      left: ${deviceImageFlyLeft}px;
+      top: ${deviceImageFlyTop}px;
+      width: ${deviceImageFlyWidth}px;
+      height: ${deviceImageFlyHeight}px;
+      fill: red;
+      `;
+
+      // додаємо клон (додається в кінець body) 
+      document.body.append(deviceImageFly);
+
+      const cartFlyLeft = cart.getBoundingClientRect().left;
+      const cartFlyTop = cart.getBoundingClientRect().top;
+
+      deviceImageFly.style.cssText =
+      `
+      left: ${cartFlyLeft}px;
+      top: ${cartFlyTop}px;
+      width: 20px;
+      height: 20px;
+      opacity:0;
+      `;
+
+
+    }
+
+
+
+      deviceImageFly.addEventListener('transitionend', function(){
+        if (deviceButton.classList.contains('_fly')){
+          // видалення клона зображення пакетика
+          deviceImageFly.remove();
+          updateCart(deviceButton, deviceId);
+          deviceButton.classList.remove('_fly');
+        }
+      });
+
+
+function updateCart(deviceButton, deviceId, deviceAdd = true){
+  const cart = document.querySelector('.cart-header');
+  const cartIcon = cart.querySelector('.cart-header__icon');
+  const cartQuantity = cartIcon.querySelector('span');
+  const cartDevice = document.querySelector(`[data-cart-pid="${deviceId}"]`);
+  const cartList = document.querySelector('.cart-list');
+
+  // додаємо device
+  if (deviceAdd) {
+    if (cartQuantity){
+      cartQuantity.innerHTML=++cartQuantity.innerHTML;
+    }else{
+      cartIcon.insertAdjacentHTML('beforeend', `<span class="badge text-bg-warning cart-badge bg-warning rounded-circle">1</span>`);
+      // 3:48
+    }
+
+    if(!cartDevice){
+      const device = document.querySelector(`[data-cart-pid="${deviceId}"]`); 
+      const cartDeviceName = document.querySelector('.item-device__name').innerHTML; 
+      const cartDeviceDevtype = document.querySelector('.item-device__devtype').innerHTML; 
+      const cartDeviceContent = `
+      <div class="cart-list__body">
+      <p> ${cartDeviceDevtype}</p>
+      <p> ${cartDeviceName}</p>
+      <div class="cart-list__quantity">К-сть: <span>1</span></div>
+      <a href="" class="cart-list__delete">Видалити</a>
+      </div>`;
+      cartList.insertAdjacentHTML('beforeend',`<li datacart-pid="${deviceId}" class="cart-list__item">${cartDeviceContent}</li>`);
+    }else{
+      const cartDeviceQuantity = cartDevice.querySelector('.cart-list__quantity span');
+      cartDeviceQuantity.innerHTML = ++cartDeviceQuantity;
+    }
+
+    // прибираємо класс _hold
+    deviceButton.classList.remove('_hold');
+  }
+
+}

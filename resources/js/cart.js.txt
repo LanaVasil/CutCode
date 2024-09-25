@@ -1,0 +1,65 @@
+// корзина
+function documentActions(e){
+  const targetElement = e.target;
+  if(targetElement.classList.contains('action-device__button')){
+    const deviceId=targetElement.closest('item-device').dataset.pid;
+    addToCart(targetElement. deviceId);
+    e.preventDefault();
+
+  }
+}
+
+function addToCart(deviceButton, deviceId){
+  if (!deviceButton.classList.contains('hold')){
+    deviceButton.classList.add('_hold');
+    deviceButton.classList.add('_fly');
+
+    const cart = document.querySelector('.cart-header__icon');
+    const device = document.querySelector(`[data-pid="${deviceId}"]`);
+    const deviceImage = document.querySelector('item-device__icon');
+
+    const deviceImageFly = deviceImage.cloneNode(true);
+
+    const deviceImageFlyWidth = deviceImage.offsetWidth;
+    const deviceImageFlyHeight = deviceImage.offsetHeight;
+    const deviceImageFlyTop = deviceImage.getBoundingClientRect().top;
+    const deviceImageFlyLeft = deviceImage.getBoundingClientRect().left;
+
+    deviceImageFly.setAttribute('class','_flyImage _ibg');
+    deviceImageFly.style.cssText = 
+    `
+    left: ${deviceImageFlyLeft}px;
+    top: ${deviceImageFlyTop}px;
+    width: ${deviceImageFlyWidth}px;
+    height: ${deviceImageFlyHeight}px;
+    `;
+
+    document.body.append(deviceImageFly);
+
+    const cartFlyLeft= cart.getBoundingClientRect().left;
+    const cartFlyTop= cart.getBoundingClientRect().top;
+    
+    deviceImageFly.style.cssText=
+    `
+    left: ${cartFlyLeft}px;
+    top: ${cartFlyTop}px;
+    width: 0px;
+    height: 0px;    
+    opacity:0;
+    `;
+
+    deviceImageFly.addEventListener('transitionend', function(){
+      if(deviceButton.classList.contains('_fly')) {
+        deviceImageFly.remove();
+        updateCart(deviceButton, deviceId);
+        deviceButton.classList.remove('_fly');
+
+      }
+    })
+  }
+}
+
+function updateCart(deviceButton, deviceId, deviceAdd=true){
+
+}
+// ./корзина

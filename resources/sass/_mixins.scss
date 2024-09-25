@@ -1,0 +1,16 @@
+@mixin font($font_name, $font_style, $font_weight, $font_file)
+  @font-face 
+      font-family: $font_name 
+      font-style: $font_style 
+      font-weight: $font_weight 
+      font-display: swap
+      src: url('../fonts/#{$font_file}.woff2') format('woff2')
+
+@include font('BebasNeuePro', normal, 300, 'BebasNeuePro-Light')
+@include font('BebasNeuePro', normal, 400, 'BebasNeuePro-Regular')
+@include font('BebasNeuePro', normal, 500, 'BebasNeuePro-Medium')
+@include font('BebasNeuePro', normal, 700, 'BebasNeuePro-Bold')
+
+@include font('KalinkaMalinka', normal, 400, 'KalinkaMalinka-Regular')
+@include font('miama', normal, 400, 'miama-Regular')
+@include font('UAArmyLabels', normal, 400, 'UAArmyLabels-Regular')
