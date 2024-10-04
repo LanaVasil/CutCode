@@ -10,6 +10,9 @@ use Illuminate\Database\Events\QueryExecuted;
 
 use Vite;
 use Carbon\Carbon;
+use Carbon\CarbonInterval;
+use Illuminate\Contracts\Http\Kernel;
+// use Illuminate\Foundation\Http\Kernel;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 
@@ -32,8 +35,22 @@ class AppServiceProvider extends ServiceProvider
         Model::preventSilentlyDiscardingAttributes(! $this->app->isProduction());
 
         DB::whenQueryingForLongerThan(500, function (Connection $connection, QueryExecuted $event) {
-            // Notify development team...
+          logger()
+              ->channel('telegram')
+              ->debug('whenQueryingForLongerThan: ' . $connection->query()->toSql());
         }); 
+
+        $kernel = app(Kernel::class);
+        $kernel ->whenRequestLifecycleIsLongerThan(
+          CarbonInterval::seconds(4), 
+          function(){
+            logger()
+            ->channel('telegram')
+            ->debug('whenRequestLifecycleIsLongerThan: ' . request()->url());
+
+          }
+        );
+
 
 
       

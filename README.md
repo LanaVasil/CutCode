@@ -1,7 +1,8 @@
 # Installation
 
 - composer install
-- php artisan storage:link
-- php artisan migrate
+
+- php artisan ducop:install
+
  
 # Deploy
