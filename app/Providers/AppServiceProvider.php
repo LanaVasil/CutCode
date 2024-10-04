@@ -18,30 +18,31 @@ use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
-        //
-    }
-
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
-        Model::preventLazyLoading(! $this->app->isProduction());
-        Model::preventSilentlyDiscardingAttributes(! $this->app->isProduction());
+      Model::shouldBeStrict(!app()->isProduction());
 
-        DB::whenQueryingForLongerThan(500, function (Connection $connection, QueryExecuted $event) {
-          logger()
-              ->channel('telegram')
-              ->debug('whenQueryingForLongerThan: ' . $connection->query()->toSql());
-        }); 
+      if (app()->isProduction()){
+        // якщо довгий конект, то надіслати в лог
+        // DB::whenQueryingForLongerThan(500, function (Connection $connection, QueryExecuted $event) {
+        // DB::whenQueryingForLongerThan(CarbonInterval::seconds(5), function (Connection $connection, QueryExecuted $event) {
+        //   logger()
+        //       ->channel('telegram')
+        //       // ->debug('whenQueryingForLongerThan: ' . $connection->query()->toSql());
+        //       ->debug('whenQueryingForLongerThan: ' . $connection->totalQueryDuration());
+        // }); 
 
-        $kernel = app(Kernel::class);
-        $kernel ->whenRequestLifecycleIsLongerThan(
+        DB::listen(function ($query){
+          // dump($query->time);
+          if($query->time > 100){
+            logger()
+            ->channel('telegram')
+            // ->debug('whenQueryingForLongerThan: ' .$query()->sql, $query()->bindings);
+            ->debug('query lohger than 1ms: ' .$query()->sql, $query()->bindings);
+          }
+        });
+
+        app(Kernel::class)->whenRequestLifecycleIsLongerThan(
           CarbonInterval::seconds(4), 
           function(){
             logger()
@@ -50,7 +51,7 @@ class AppServiceProvider extends ServiceProvider
 
           }
         );
-
+      }
 
 
       

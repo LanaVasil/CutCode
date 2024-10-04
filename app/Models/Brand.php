@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Models;
+namespace App\Models; 
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Builder;
+use App\Traits\Models\HasSlug;
 
 class Brand extends Model
 {
   use HasFactory;
+  use HasSlug;
   use SoftDeletes;
 
   // protected $fillable = ['name', 'content'] -  перелік полів які можно заповнювати методoм only
